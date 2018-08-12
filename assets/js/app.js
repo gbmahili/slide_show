@@ -68,7 +68,7 @@ arrowRight.addEventListener("click", function () {
 //     }    
 // }
 
-// Bring up the settings:
+// Bring up the setting to either show or hide the carousel:
 var isSettingSectionOn = false;
 document.getElementById("setting-gear").addEventListener("click", function () {
     if (!isSettingSectionOn) {
@@ -86,7 +86,10 @@ document.getElementById("setting-gear").addEventListener("click", function () {
 
 // When this application starts, set the automatic slide to false in local storage
 localStorage.setItem("AUTOMATIC_SLIDE", "true");
+// Retrieve the state of the carousel slide behavior
 let automaticSlide = localStorage.getItem("AUTOMATIC_SLIDE");
+
+// Show the image every 7 seconds
 let slideInterval;
 function startInterval() {
     if (automaticSlide === "true") {
@@ -96,11 +99,13 @@ function startInterval() {
     };
 }
 
-// Change automaticSlideState
+// Change automaticSlideState when the user clicks on the message:
 let isNotChecked = true;
 document.getElementById("toggle-slide-play").addEventListener("click", function () {
     if (isNotChecked) {
+        // Get the state
         localStorage.setItem("AUTOMATIC_SLIDE", "false");
+        // By default, the icon is checked because the slide show is automatically set to on...
         document.getElementById("slide-autoplay-icon").innerHTML = "&#9744;";
         document.getElementById("slide-autoplay-text").innerHTML = "Slide autoplay is disabled. Click to enable. <br> You can use the arrows to slide through.";
         clearInterval(slideInterval);        
