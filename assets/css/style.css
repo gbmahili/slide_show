@@ -15,11 +15,10 @@ body, #slider, .wrap, .slide-content {
     background-repeat: no-repeat;  
 }
 
+/* Each slide will be animated for 2 seconds using cubic-bezier settings and forwards as the fill-mode */
 .slide1, .slide2, .slide3, .slide4, .slide5 {
-    animation: fade-slide-down 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    
+    animation: fade-slide-down 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;      
 }
-
 @keyframes fade-slide-down {
     0% {
         opacity: 0;
@@ -31,14 +30,14 @@ body, #slider, .wrap, .slide-content {
     }
 }
 
-/* Local */
+/* We setup the background images for each slide div....on Local computer or GitHub Pages, use these images */
 .slide1 { background-image: url("../img/nyc.jpeg");}
 .slide2 { background-image: url("../img/berlin.jpeg"); }
 .slide3 { background-image: url("../img/dc.jpeg"); }
 .slide4 { background-image: url("../img/paris.jpeg"); }
 .slide5 { background-image: url("../img/prague.jpeg"); }
 
-/* CodePend */
+/* These images were used for CodePen */
 /* .slide1 {
 	background-image: url("https://source.unsplash.com/random/800x601");
 }
@@ -55,6 +54,7 @@ body, #slider, .wrap, .slide-content {
 	background-image: url("https://source.unsplash.com/random/800x605");
 } */
 
+/* We are using Flex to set up the slide-content and make sure everything is centered. */
 .slide-content {
     display: flex;
     flex-direction: column;
@@ -88,24 +88,30 @@ body, #slider, .wrap, .slide-content {
     height: 0;
     border-style: solid;
 }
-/* Left Arrow */
-#arrow-left {
+
+/* ARROWS */
+/* We are using pure CSS to set up the arrows */
+#arrow-left, #arrow-right {
     border-width: 30px;
-    border-color: transparent white transparent transparent;
-    left: 0;
-    margin-left: 30px;
-    opacity: 0;    
-    /* animation: arrow-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; */
+    opacity: 0;
+    /* 
+        These animations will be called upon in Javascript to change the opacity of the left and right arrows
+        animation: arrow-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        animation: arrow-right 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    */
 }
 
-/* Right Arrow Annimation */
+#arrow-left {
+    border-color: transparent white transparent transparent;
+    left: 0;
+    margin-left: 30px;    
+}
+
 #arrow-right {
-    border-width: 30px;
     border-color: transparent transparent transparent white;
     right: 0;
     margin-right: 30px;
-    opacity: 0;
-    /* animation: arrow-right 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;  */
+    
 }
 
 /* Left Arrow Animation */
@@ -155,6 +161,7 @@ body, #slider, .wrap, .slide-content {
     }
 }
 
+/* GEAR SETTINGS: Position at the bottom right corner of the page */
 #setting-gear {
     position: fixed;
     right: 30px;
@@ -169,7 +176,7 @@ body, #slider, .wrap, .slide-content {
 #setting-gear:hover {
     opacity: 1;
 }
-
+/* Both the company info div and gear setting section will be opaque .7 */
 #setting-section, #company-branches {  
     background-color: black;
     opacity: 0;
@@ -185,9 +192,9 @@ body, #slider, .wrap, .slide-content {
 
 #company-branches {
     top: 0;
-    /* opacity: 0.7; */
+    /* opacity: 0.7; to be set in JS*/
 }
-
+/* Close icon for the company info */
 #close-office-info {
     position: absolute;
     bottom: 10px;
@@ -207,6 +214,7 @@ body, #slider, .wrap, .slide-content {
     display: inline-block;
 }
 
+/* These animation are applied when the gear icon is clicked as well as each city name */
 @keyframes show_setting_section {
     0% {
         opacity: 0;
@@ -237,8 +245,8 @@ body, #slider, .wrap, .slide-content {
     color: rgb(65, 105, 235);
 }
 
-/* Media Queries */
-@media only screen and (max-width: 600px) {
+/* Media Querry */
+@media only screen and (max-width: 768px) {
     .slide-content span {
         font-size: 1.5em;
         padding: 2px 50px;

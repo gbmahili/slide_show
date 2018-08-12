@@ -106,11 +106,16 @@ document.getElementById("toggle-slide-play").addEventListener("click", function 
         // Get the state
         localStorage.setItem("AUTOMATIC_SLIDE", "false");
         // By default, the icon is checked because the slide show is automatically set to on...
+        // First, we change the icon to to unchecked using HTML symbols
         document.getElementById("slide-autoplay-icon").innerHTML = "&#9744;";
+        // We then change the instruction text and let the user know that the slide show has been disabled
         document.getElementById("slide-autoplay-text").innerHTML = "Slide autoplay is disabled. Click to enable. <br> You can use the arrows to slide through.";
-        clearInterval(slideInterval);        
+        // We then clear the interval so it stops sliding
+        clearInterval(slideInterval);
+        // We then show both arrows
         document.getElementById("arrow-left").style.animation = "arrow-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards";
         document.getElementById("arrow-right").style.animation = "arrow-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards";
+        // Finally, set the value to false so we can toggle the above seetings if the state is false
         isNotChecked = false;
     } else {
         localStorage.setItem("AUTOMATIC_SLIDE", "true");
@@ -125,7 +130,9 @@ document.getElementById("toggle-slide-play").addEventListener("click", function 
 
 
 
-// Show Office Info: Data from a database
+// Show Office Info: 
+
+// This office data would come from a database through an XHR Request
 let corporateInfo = {
     "New York": {
         office_title: "New York Head Quarters",
@@ -173,36 +180,38 @@ let corporateInfo = {
         }
     }
 }
+// We get the name of the office clicked on by looping through all the class 'office-name' and call the function
 let el = document.getElementsByClassName('office-name');
 for (let i = 0; i < el.length; i++) {
     el.item(i).onclick = showOfficeName;
 }
 
-
-let isOfficeInfoOn = false;
+// When this function is called on each office name clicked:
 function showOfficeName(e) {
-    // Get Elements names
+    // Instantiate element names and assign their values
     let office_title = document.getElementById("office_title"),
         office_role = document.getElementById("office_role"),
         office_street = document.getElementById("office_street"),
         office_phone = document.getElementById("office_phone"),
         office_email = document.getElementById("office_email");
     
-    let officeName = corporateInfo[e.target.innerText];
-    office_title.innerText = officeName.office_title;
-    office_role.innerText = officeName.office_role;
-    office_street.innerText = officeName.address_info.office_street;
-    office_phone.innerText = officeName.address_info.office_phone;
-    office_email.innerText = officeName.address_info.office_email;
+    // We then get the clicked's office data from the object (received from a db) 
+    let officeInfoData = corporateInfo[e.target.innerText];
+    // Set the values for the elements with their data
+    office_title.innerText = officeInfoData.office_title;
+    office_role.innerText = officeInfoData.office_role;
+    office_street.innerText = officeInfoData.address_info.office_street;
+    office_phone.innerText = officeInfoData.address_info.office_phone;
+    office_email.innerText = officeInfoData.address_info.office_email;
     document.getElementById("company-branches").style.animation = "show_setting_section 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards";
     
 }
-
+// To dismiss the office info, we click on the 'x' and change it's opacity usins the hide_setting_section keyframes
 document.getElementById("close-office-info").addEventListener("click", function () {
     // Show the setting-section
     document.getElementById("company-branches").style.animation = "hide_setting_section 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards";
 })
 
-// Run the app.
+// Start the slidewho and the interval.
 startSlide();
 startInterval();
