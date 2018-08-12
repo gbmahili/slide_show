@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## Responsive Carousel - by Baraka Mahili
 
-You can use the [editor on GitHub](https://github.com/gbmahili/slide_show/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This carousel was created in pure JavaScript, HTML and CSS. There are no frameworks used.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Usage
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+On load, a list of 5 images will start scrolling left to right with a splash animation.
 
 ```markdown
-Syntax highlighted code block
+Methods used
 
-# Header 1
-## Header 2
-### Header 3
+### Stop or Resume the slide show
 
-- Bulleted
-- List
+- Click the gear icon in the bottom-right
+- Click the text to enable or disable the slideshow
+- Two arrows will show to provide an option to continue with sliding or not
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
+Click the branch city name
+- The branch information will show up in a nice animation
+- Click the **x** inside in the bottom right corner of the company info div to dismiss
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+This code is also on my [Codepen](https://codepen.io/GBMahili/pen/RBEQXw) page.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gbmahili/slide_show/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Thank you.
