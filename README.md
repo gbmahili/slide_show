@@ -17,8 +17,7 @@ Methods used
 
 Click the branch city name
 - The branch information will show up in a nice animation
-- Click the **x** inside in the bottom right corner of the company info div to dismiss
-[Link](url) and ![Image](src)
+- Click the **x** inside in the bottom right corner of the company info div to dismiss.
 ```
 
 This code is also on my [Codepen](https://codepen.io/GBMahili/pen/RBEQXw) page.
